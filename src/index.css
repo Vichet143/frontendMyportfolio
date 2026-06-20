@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+.container{
+  max-width: 1280px;
+  margin: auto;
+}
+body {
+  background-color: #0D111C;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.bg-navbar{
+  background-color: rgba(0, 0, 0, 0.96);
+}
+
+.bg-white-opacity{
+  background-color: rgba(0, 128, 0, 0.652);
+}
