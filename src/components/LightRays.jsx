@@ -487,7 +487,7 @@ void main() {
           </a>
           <a
             class="group inline-flex items-center gap-4 rounded-full border ml-5 border-green-400 bg-green-400 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-            href="#"
+            href="/about"
           >
             <span>MORE ABOUT ME</span>
 

@@ -42,7 +42,7 @@ const Footer = () => {
       <div className="container py-6">
         <div className="flex justify-between">
           <div className="w-[50%] h-60 p-5">
-            <h1 className="font-bold text-2xl">
+            <h1 className="font-bold text-2xl tracking-[0.4rem]">
               VICHET{" "}
               <span className="px-3 py-1 border border-green-400 rounded">
                 CHOUB
@@ -55,12 +55,12 @@ const Footer = () => {
           </div>
           <div className="w-[50%] h-60 p-5 flex flex-col items-end">
             <h1 className="font-bold tracking-[0.3rem]">CONNECT WITH ME</h1>
-            <div className="flex flex-row gap-4 invert justify-end">
+            <div className="flex flex-row gap-4 justify-end">
               {iconconnect.map((item, index) => (
                 <div key={index} className="flex flex-row">
                   <a href={item.link}>
                     <img
-                      className="border hover:border-pink-400 border-gray-400 rounded-full w-13 p-2 my-5 hover:translate-1.5 duration-300 transition-transform"
+                      className="border bg-white hover:border-green-400 border-gray-400 rounded-full w-14 p-2 my-5 hover:translate-1.5 duration-300 transition-transform"
                       src={item.icon}
                       alt=""
                     />
@@ -70,7 +70,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-center text-gray-400">© 2026 Vichet. All rights reserved.</p>
+        <p className="text-center text-gray-400">
+          © 2026 Vichet. All rights reserved.
+        </p>
       </div>
     </div>
   );

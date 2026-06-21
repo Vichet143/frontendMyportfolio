@@ -7,7 +7,7 @@ import CartProject from "../../components/CartProject";
 import MoveToTop from "../../components/MoveToTop";
 
 const Home = () => {
-  const [user, setUser] = useState([]);
+  const [user,setUser] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -21,7 +21,7 @@ const Home = () => {
     };
 
     fetchUser();
-  }, []);
+  },[]);
 
   return (
     <div className="pb-10 container">

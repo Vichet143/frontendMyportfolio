@@ -60,18 +60,22 @@ const CartProject = () => {
           </h5>
 
           {/* Description */}
-          <p className="mb-6 text-gray-400 text-[13px]">{item.description}</p>
+          <p className="mb-6 text-gray-400 text-[13px] h-40">
+            {item.description}
+          </p>
 
           {/* Skills */}
-          <div className="flex flex-wrap gap-2 text-[13px] mb-10 mt-5">
-            {item.project_skill.map((skill, index2) => (
-              <p
-                key={index2}
-                className="bg-green-400 px-3 py-1 rounded text-gray-900 font-bold"
-              >
-                {skill}
-              </p>
-            ))}
+          <div className="h-25">
+            <div className="flex flex-wrap gap-2 text-[13px] mb-10 mt-5">
+              {item.project_skill.map((skill, index2) => (
+                <p
+                  key={index2}
+                  className="bg-green-400 px-3 py-1 rounded text-gray-900 font-bold"
+                >
+                  {skill}
+                </p>
+              ))}
+            </div>
           </div>
 
           {/* Footer */}
