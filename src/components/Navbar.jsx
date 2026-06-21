@@ -1,5 +1,6 @@
 import TrueFocus from "./Textfocus";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   let menu = [
@@ -83,17 +84,22 @@ const Navbar = () => {
             />
           </svg>
         </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul className="font-medium flex flex-col gap-3 p-4 mt-4 rounded-3xl bg-slate-950/80 border border-white/10 md:flex-row md:space-x-4 md:p-2 md:mt-0 md:border-0 md:bg-transparent">
             {menu.map((item, index) => (
               <li key={index}>
-                <a
-                  href={item.link}
-                  class="block py-2 px-3 text-white rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-green-400 md:p-0 md:dark:hover:bg-transparent"
-                  aria-current="page"
+                <NavLink
+                  to={item.link}
+                  className={({ isActive }) =>
+                    `inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                      isActive
+                        ? "border-green-400 bg-green-400/10 text-green-300 shadow-[0_10px_30px_rgba(34,197,94,0.22)]"
+                        : "border-transparent text-white hover:border-green-400/40 hover:bg-white/10 hover:text-green-300"
+                    }`
+                  }
                 >
                   {item.name}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
