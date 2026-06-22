@@ -49,7 +49,7 @@ const Home = () => {
       <div className="flex justify-center mt-20 mb-40">
         <a
           class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-          href="#"
+          href="/about"
         >
           <span>MORE ABOUT ME</span>
 
@@ -83,7 +83,7 @@ const Home = () => {
       <div className="flex justify-center my-10">
         <a
           class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-          href="#"
+          href="/projects"
         >
           <span>VIEW MORE PROJECTS</span>
 

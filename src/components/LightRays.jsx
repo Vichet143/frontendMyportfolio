@@ -466,7 +466,7 @@ void main() {
           </p>
           <a
             class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-            href="#"
+            href="/projects"
           >
             <span>EXPLORE MY PROJECT</span>
 

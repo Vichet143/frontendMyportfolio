@@ -38,6 +38,22 @@ class UserService {
       return error;
     }
   }
+  static async getDataUserSkill(){
+    try {
+      const response = await api.get("/Userskill");
+      return response.data;
+    } catch (error) {
+      return error;
+    }
+  }
+  static async getDataSoftSkill(){
+    try {
+      const response = await api.get("/softskill");
+      return response.data;
+    } catch (error) {
+      return error;
+    }
+  }
 }
 
 export default UserService;
