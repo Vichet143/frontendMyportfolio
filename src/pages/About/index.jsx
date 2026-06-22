@@ -49,17 +49,17 @@ const About = () => {
   return (
     <div className="container">
       <div className="py-50">
-        <h1 className="text-center font-bold text-2xl tracking-[0.5rem]">
+        <h1 className="text-center font-bold text-3xl tracking-[0.5rem]">
           ABOUT{" "}
           <span className="px-3 py-1 border border-green-400 rounded">ME</span>
         </h1>
-        <h1 className="text-center font-bold text-3xl tracking-[0.5rem] my-3 mt-7">
+        <h1 className="text-center font-bold text-xl tracking-[0.5rem] my-3 mt-7">
           KNOW WHO AM I
         </h1>
         {user.map((item, index) => (
           <div
             key={index}
-            className="border border-green-400 w-100 h-150 flex justify-center items-center relative rounded mt-30"
+            className="border border-green-400 w-100 h-150 flex justify-center items-center relative rounded-3xl mt-30"
           >
             <img
               src={item.profile_image}

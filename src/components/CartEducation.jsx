@@ -20,7 +20,7 @@ const CartEducation = () => {
   },[]);
 
   return (
-    <div className="mt-20">
+    <div className="mt-30">
       <div className="flex justify-center gap-10">
         {education.map((item, index) => (
           <div
