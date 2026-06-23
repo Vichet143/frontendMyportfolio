@@ -28,20 +28,24 @@ const Cart = () => {
   ];
 
   return (
-    <div className="flex justify-between my-4">
+    <div className="flex flex-wrap justify-center gap-8 my-4 px-4">
       
       {list.map((item, index) => (
         <div
           key={index}
-          className={`w-70 h-90 border border-green-400 p-5 ${index % 2 === 0 ? "-translate-y-4" : "translate-y-2"} rounded transition-transform duration-300 ease-in-out hover:-translate-x-2 hover:-translate-y-2 hover:border-green-400`}
+          className={`w-full sm:w-[320px] lg:w-70 min-h-90 border border-green-400 p-5 ${index % 2 === 0 ? "lg:-translate-y-4" : "lg:translate-y-2"} rounded transition-transform duration-300 ease-in-out hover:-translate-x-2 hover:-translate-y-2 hover:border-green-400`}
         >
-          <div className="w-25">
-            <img src={item.icon} alt="" />
-          </div>
+          <div className="w-24 mx-auto">
+    <img
+        src={item.icon}
+        alt={item.title}
+        className="w-full h-auto"
+    />
+</div>
 
-          <h1 className="text-white text-2xl font-bold mt-5">{item.title}</h1>
+          <h1 className="text-white text-2xl font-bold text-center mt-5">{item.title}</h1>
 
-          <p className="text-gray-400 mt-5">{item.text}</p>
+          <p className="text-gray-400 text-center mt-5 leading-7">{item.text}</p>
         </div>
       ))}
     </div>

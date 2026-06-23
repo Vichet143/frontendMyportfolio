@@ -31,6 +31,7 @@ const Navbar = () => {
   ];
 
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,46 +47,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`transition-colors duration-300 fixed w-full z-50 top-0 inset-s-0 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
         scrolled ? "bg-navbar text-white" : "bg-transparent text-white"
       }`}
     >
-      <div class="container flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="https://flowbite.com/"
-          class="flex items-center space-x-3 rtl:space-x-reverse"
-        >
-          <span class="self-center text-xl text-white font-semibold whitespace-nowrap">
+      <div className="max-w-7xl mx-auto flex items-center justify-between p-4 lg:px-6 xl:px-8">
+        <a href="https://flowbite.com/" class="flex items-center space-x-3">
+          <span class="self-center text-lg sm:text-xl font-semibold whitespace-nowrap text-white">
             <TrueFocus sentence="VICHET CHOUB" />
           </span>
         </a>
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg
-            class="w-6 h-6"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-width="2"
-              d="M5 7h14M5 12h14M5 17h14"
-            />
-          </svg>
-        </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col gap-3 p-4 mt-4 rounded-3xl bg-slate-950/80 border border-white/10 md:flex-row md:space-x-4 md:p-2 md:mt-0 md:border-0 md:bg-transparent">
+        <div className="hidden lg:block" id="navbar-default">
+          <ul className="font-medium flex flex-col gap-3 p-4 mt-4 rounded-3xl bg-slate-950/80 border border-white/10 md:flex-row lg:space-x-2 xl:space-x-4 md:p-2 md:mt-0 md:border-0 md:bg-transparent">
             {menu.map((item, index) => (
               <li key={index}>
                 <NavLink
@@ -95,6 +68,65 @@ const Navbar = () => {
                       isActive
                         ? "border-green-400 bg-green-400/10 text-green-300 shadow-[0_10px_30px_rgba(34,197,94,0.22)]"
                         : "border-transparent text-white hover:border-green-400/40 hover:bg-white/10 hover:text-green-300"
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={`relative flex h-11 w-11 items-center justify-center rounded-xl border transition-all duration-300 lg:hidden ${
+            isOpen
+              ? "border-green-400 bg-green-500/10 shadow-lg shadow-green-500/30"
+              : "border-white/10 bg-white/5 backdrop-blur-md hover:border-green-400/40 hover:bg-white/10"
+          }`}
+        >
+          <span className="sr-only">Toggle Menu</span>
+
+          <div className="relative h-5 w-6">
+            <span
+              className={`absolute left-0 top-0 h-0.5 w-6 rounded-full bg-white transition-all duration-300 ${
+                isOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-2 h-0.5 w-6 rounded-full bg-white transition-all duration-300 ${
+                isOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-4 h-0.5 w-6 rounded-full bg-white transition-all duration-300 ${
+                isOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out lg:hidden ${
+          isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="mx-4 sm:mx-6 mb-4 rounded-2xl border border-white/10 bg-slate-950/90 p-4 backdrop-blur-xl shadow-2xl">
+          <ul className="space-y-2">
+            {menu.map((item) => (
+              <li key={item.name}>
+                <NavLink
+                  to={item.link}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `block rounded-xl px-4 py-3 text-sm font-medium transition-all duration-300 ${
+                      isActive
+                        ? "bg-green-500/15 text-green-300 border border-green-400"
+                        : "text-white hover:bg-white/10 hover:text-green-300"
                     }`
                   }
                 >

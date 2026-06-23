@@ -40,27 +40,27 @@ const Footer = () => {
   return (
     <div className=" bg-black">
       <div className="container py-6">
-        <div className="flex justify-between">
-          <div className="w-[50%] h-60 p-5">
+        <div className="flex flex-col lg:flex-row justify-between gap-10">
+          <div className="w-full lg:w-1/2 p-5">
             <h1 className="font-bold text-2xl tracking-[0.4rem]">
               VICHET{" "}
               <span className="px-3 py-1 border border-green-400 rounded">
                 CHOUB
               </span>
             </h1>
-            <p className="text-gray-400 w-100 mt-5">
+            <p className="text-gray-400 max-w-lg mt-5">
               Building innovative digital solutions with a focus on clean,
               efficient code and exceptional user experiences.
             </p>
           </div>
-          <div className="w-[50%] h-60 p-5 flex flex-col items-end">
-            <h1 className="font-bold tracking-[0.3rem]">CONNECT WITH ME</h1>
-            <div className="flex flex-row gap-4 justify-end">
+          <div className="w-full lg:w-1/2 p-5 flex flex-col items-center lg:items-end">
+            <h1 className="font-bold tracking-[0.3rem] text-center lg:text-right">CONNECT WITH ME</h1>
+            <div className="flex flex-wrap justify-center lg:justify-end gap-4 mt-5">
               {iconconnect.map((item, index) => (
                 <div key={index} className="flex flex-row">
                   <a href={item.link}>
                     <img
-                      className="border bg-white hover:border-green-400 border-gray-400 rounded-full w-14 p-2 my-5 hover:translate-1.5 duration-300 transition-transform"
+                      className="w-12 sm:w-14 border bg-white border-gray-400 rounded-full p-2 hover:border-green-400 hover:-translate-y-1 transition duration-300"
                       src={item.icon}
                       alt=""
                     />
