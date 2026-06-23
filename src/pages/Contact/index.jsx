@@ -4,7 +4,6 @@ import UserService from "../../service/UserService";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { CiLocationOn } from "react-icons/ci";
-import { userData } from "three/src/nodes/accessors/UserDataNode.js";
 
 const Contact = () => {
   const [user, setUser] = useState([]);
@@ -45,8 +44,8 @@ const Contact = () => {
   ];
 
   return (
-    <div className="my-50">
-      <div className="container">
+    <div className="my-40">
+      <div className="container mx-auto px-4">
         <h1 className="text-center text-3xl font-bold tracking-[0.3rem] uppercase">
           Let's Connect
         </h1>
@@ -54,9 +53,9 @@ const Contact = () => {
           Open for internships, freelance work, and collaborations.
         </p>
 
-        <div className="flex justify-center gap-6 mt-20">
+        <div className="flex flex-col lg:flex-row justify-center gap-6 mt-10 lg:mt-20 px-4">
           <div>
-            <div className="w-120 bg-black p-6 rounded">
+            <div className="w-full max-w-md bg-black p-6 rounded mx-auto">
               <h1 className="text-2xl tracking-[0.1rem] font-bold">
                 Contact Information
               </h1>
@@ -66,7 +65,7 @@ const Contact = () => {
 
                   return (
                     <a key={index} href={item.link}>
-                      <div className="w-full bg-gray-500/20 border border-green-400 rounded p-2 my-4 flex items-center gap-5 transition-all duration-300 hover:-translate-y-2">
+                      <div className="w-full bg-gray-500/20 border border-green-400 rounded p-3 sm:p-2 my-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5 transition-all duration-300 hover:-translate-y-2">
                         <div className="w-10 h-10 bg-green-400/40 rounded-full flex items-center justify-center">
                           <Icon className="text-white text-xl" />
                         </div>
@@ -83,7 +82,7 @@ const Contact = () => {
               <h1 className="font-bold mt-10 tracking-[0.1rem]">
                 Social Media
               </h1>
-              <div className="flex items-center gap-4 mt-6">
+              <div className="flex flex-wrap items-center gap-4 mt-6">
                 {icon2.map((item, index) => {
                   const Icon = item.icon;
 
@@ -114,12 +113,12 @@ const Contact = () => {
                 })}
               </div>
             </div>
-            <div className="w-120 border border-green-400 p-6 rounded mt-10">
-                <h1 className="font-bold tracking-[0.1rem]">Response Time</h1>
-                <p className="tracking-[0.1rem] text-gray-400 text-[13px] mt-2">
-                  I strive to respond to all messages as quickly as possible.
-                </p>
-              </div>
+            <div className="w-full max-w-md border border-green-400 p-6 rounded mt-10 mx-auto">
+              <h1 className="font-bold tracking-[0.1rem]">Response Time</h1>
+              <p className="tracking-[0.1rem] text-gray-400 text-[13px] mt-2">
+                I strive to respond to all messages as quickly as possible.
+              </p>
+            </div>
           </div>
 
           {/* <div className="w-120 h-50 border border-green-400 p-6 rounded"></div> */}

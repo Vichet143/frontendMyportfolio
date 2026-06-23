@@ -185,7 +185,7 @@ const Resume = () => {
               return (
                 <div
                   key={index}
-                  className="group overflow-hidden transition-transform duration-300 hover:-translate-y-3 rounded-[2rem] border border-slate-700/50 bg-slate-950/50 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.18)] "
+                  className="group overflow-hidden transition-transform duration-300 hover:-translate-y-3 rounded-4xl border border-slate-700/50 bg-slate-950/50 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.18)] "
                 >
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="max-w-[75%]">
@@ -321,7 +321,7 @@ const Resume = () => {
   };
 
   return (
-    <div className="my-50">
+    <div className="my-40">
       <div className="container">
         <h1 className="text-center font-bold text-2xl sm:text-3xl tracking-wide sm:tracking-[0.3rem] uppercase">
           Professional Experience
