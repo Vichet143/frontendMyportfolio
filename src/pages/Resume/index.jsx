@@ -86,10 +86,10 @@ const Resume = () => {
     //skills
     if (filter === "skills") {
       return (
-        <>
-          <div className="bg-black p-10 rounded-2xl">
+        <div className="px-5">
+          <div className="bg-black p-6 sm:p-10 rounded-2xl">
             {skill.map((item, index) => (
-              <div key={index} className="flex tracking-[0.1rem] my-3 gap-2">
+              <div key={index} className="flex flex-wrap tracking-wide my-3 gap-2">
                 <h1>{item.categories}:</h1>
                 <p>{item.skill_name}</p>
               </div>
@@ -104,21 +104,21 @@ const Resume = () => {
                 key={index}
                 className="w-full transition-transform duration-300 hover:-translate-y-3"
               >
-                <div className="h-full rounded-2xl border border-green-400 p-5 bg-slate-950/80">
+                <div className="h-full rounded-2xl border border-green-400 p-4 sm:p-5 bg-slate-950/80">
                   <h1 className="mb-3 text-lg font-semibold">{item.title}</h1>
-                  <p className="text-sm text-gray-300">{item.text}</p>
+                  <p className="text-xs sm:text-sm text-gray-300">{item.text}</p>
                 </div>
               </div>
             ))}
           </div>
-        </>
+        </div>
       );
     }
 
     //education
     if (filter === "education") {
       return (
-        <div className="mt-10 grid gap-6">
+        <div className="mt-10 grid gap-6 px-5 sm:px-0">
           {education.length > 0 ? (
             education.map((item, index) => (
               <div
@@ -133,7 +133,7 @@ const Resume = () => {
                     <h1 className="text-2xl font-bold text-white">
                       {item.degree}
                     </h1>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-xs sm:text-sm text-gray-400">
                       Degree in {item.field_of_study}
                     </p>
                   </div>
@@ -141,7 +141,7 @@ const Resume = () => {
                 <h2 className="text-lg font-semibold text-white mt-4">
                   {item.school_name}
                 </h2>
-                <div className="mt-4 flex flex-wrap gap-6 text-sm text-gray-300">
+                <div className="mt-4 flex flex-wrap gap-6 text-xs sm:text-sm text-gray-300">
                   <div>
                     <p className="text-xs uppercase tracking-wide text-gray-500">
                       Duration
@@ -165,7 +165,7 @@ const Resume = () => {
           ) : (
             <div className="rounded-2xl border border-white/10 bg-slate-950/80 p-10 text-center text-gray-300">
               <p className="text-lg font-semibold">No education data found.</p>
-              <p className="mt-2 text-sm text-gray-400">
+              <p className="mt-2 text-xs sm:text-sm text-gray-400">
                 Please check back later or switch to another tab.
               </p>
             </div>
@@ -177,7 +177,7 @@ const Resume = () => {
     //project
     if (filter === "projects") {
       return (
-        <div className="mt-10 grid gap-8 xl:grid-cols-1">
+        <div className="mt-10 grid gap-8 xl:grid-cols-1 px-5">
           {project.length > 0 ? (
             project.map((item, index) => {
               const tags = item.project_skill || item.tags || [];
@@ -226,7 +226,7 @@ const Resume = () => {
                           href={item.github_uril_frontend}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center rounded-full border border-slate-600 bg-slate-900/60 px-5 py-2 text-sm font-semibold text-slate-300 transition hover:border-slate-400 hover:bg-slate-800"
+                          className="inline-flex items-center rounded-full border border-slate-600 bg-slate-900/60 px-5 py-2 text-xs sm:text-sm font-semibold text-slate-300 transition hover:border-slate-400 hover:bg-slate-800"
                         >
                           Frontend Code
                         </a>
@@ -237,7 +237,7 @@ const Resume = () => {
                           href={item.github_uril_backend}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center rounded-full border border-slate-600 bg-slate-900/60 px-5 py-2 text-sm font-semibold text-slate-300 transition hover:border-slate-400 hover:bg-slate-800"
+                          className="inline-flex items-center rounded-full border border-slate-600 bg-slate-900/60 px-5 py-2 text-xs sm:text-sm font-semibold text-slate-300 transition hover:border-slate-400 hover:bg-slate-800"
                         >
                           Backend Code
                         </a>
@@ -264,7 +264,7 @@ const Resume = () => {
     //certification
     if (filter === "certifications") {
       return (
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid gap-6 px-4 sm:px-0 md:grid-cols-2 xl:grid-cols-3">
           {certifications.length > 0 ? (
             certifications.map((item, index) => (
               <div
@@ -274,17 +274,17 @@ const Resume = () => {
                 <h2 className="text-xl font-semibold tracking-tight text-white">
                   {item.certificate_name}
                 </h2>
-                <p className="mt-2 text-sm text-green-400">
+                <p className="mt-2 text-xs sm:text-sm text-green-400">
                   {item.organization}
                 </p>
-                <p className="mt-3 text-sm text-gray-400">
+                <p className="mt-3 text-xs sm:text-sm text-gray-400">
                   Issued: {item.issue_date}
                 </p>
                 <a
                   href={item.certificate_url}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-5 inline-flex rounded-full border border-green-400/30 bg-green-400/10 px-4 py-2 text-sm font-medium text-green-300 transition hover:bg-green-400/20 hover:text-white"
+                  className="mt-5 inline-flex rounded-full border border-green-400/30 bg-green-400/10 px-4 py-2 text-xs sm:text-sm font-medium text-green-300 transition hover:bg-green-400/20 hover:text-white"
                 >
                   View Certificate
                 </a>
@@ -293,7 +293,7 @@ const Resume = () => {
           ) : (
             <div className="rounded-2xl border border-white/10 bg-slate-950/80 p-10 text-center text-gray-300">
               <p className="text-lg font-semibold">No certifications found.</p>
-              <p className="mt-2 text-sm text-gray-400">
+              <p className="mt-2 text-xs sm:text-sm text-gray-400">
                 Please try another filter or check back later.
               </p>
             </div>
@@ -304,15 +304,18 @@ const Resume = () => {
 
     if (filter == "experience") {
       return (
-        <div className="mt-10 rounded-2xl border border-white/10 bg-slate-950/80 p-10 text-center text-gray-300">
+        <div className="w-full px-5">
+          <div className="mt-10 rounded-2xl border border-white/10 bg-slate-950/80 p-10 text-center text-gray-300">
           <h1 className="text-2xl font-semibold text-white">
             Experience section coming soon.
           </h1>
-          <p className="mt-3 text-sm text-gray-400">
+          <p className="mt-3 text-xs sm:text-sm text-gray-400">
             I’m preparing my professional experience details for the next
             update.
           </p>
         </div>
+        </div>
+        
       );
     }
   };
@@ -320,11 +323,11 @@ const Resume = () => {
   return (
     <div className="my-50">
       <div className="container">
-        <h1 className="text-3xl text-center tracking-[0.5rem] font-bold uppercase">
+        <h1 className="text-center font-bold text-2xl sm:text-3xl tracking-wide sm:tracking-[0.3rem] uppercase">
           Professional Experience
         </h1>
         <div className="flex justify-center mt-5">
-          <p className="text-center text-gray-400 w-200 tracking-[0.1rem]">
+          <p className="text-center text-gray-400 w-full max-w-2xl px-4 tracking-wide">
             I'm IT Engineer specializing in Frontend and Backend. My goal is to
             leverage these technologies to create innovative solutions for
             real-world problems.
@@ -334,7 +337,7 @@ const Resume = () => {
           <a
             href="/resume.pdf"
             download
-            className="inline-flex items-center rounded-full bg-green-400 px-8 py-3 text-sm font-semibold text-slate-950 transition duration-200 hover:bg-green-300"
+            className="inline-flex items-center rounded-full bg-green-400 px-8 py-3 text-xs sm:text-sm font-semibold text-slate-950 transition duration-200 hover:bg-green-300"
           >
             <div className="flex gap-5 items-center">
               <FaDownload />
@@ -343,7 +346,7 @@ const Resume = () => {
           </a>
         </div>
         <div className="flex justify-center my-20">
-          <div className="mb-6 flex flex-wrap px-5 items-center gap-3 rounded-full border border-white/10 bg-slate-950/80 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.16)]">
+          <div className="mb-6 flex flex-wrap justify-center items-center gap-3 rounded-full border border-white/10 bg-slate-950/80 p-3">
             {[
               { key: "skills", label: "Skills" },
               { key: "education", label: "Education" },
@@ -355,7 +358,7 @@ const Resume = () => {
                 key={option.key}
                 type="button"
                 onClick={() => setFilter(option.key)}
-                className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/40 ${
+                className={`rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-400/40 ${
                   filter === option.key
                     ? "bg-green-400 text-slate-950 shadow-[0_12px_30px_rgba(34,197,94,0.24)]"
                     : "text-white/70 hover:bg-white/10 hover:text-white"
