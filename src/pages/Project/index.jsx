@@ -8,7 +8,7 @@ const Project = () => {
   return (
     <div className="my-50">
       <div className="container">
-        <h1 className="font-bold text-3xl tracking-[0.5rem] text-center uppercase">
+        <h1 className="text-center font-bold text-2xl sm:text-3xl tracking-wide sm:tracking-[0.3rem] uppercase">
           My Projects
         </h1>
         <div className="flex justify-center mt-5 mb-20">
