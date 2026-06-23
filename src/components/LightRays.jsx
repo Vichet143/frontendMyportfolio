@@ -471,7 +471,7 @@ void main() {
               class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
               href="/projects"
             >
-              <div className="w-full flex justify-center">
+              <div className="w-full flex justify-center items-center">
                 <span>EXPLORE MY PROJECT</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -493,7 +493,7 @@ void main() {
               class="group inline-flex items-center gap-4 rounded-full border border-green-400 bg-green-400 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
               href="/about"
             >
-              <div className="w-full flex justify-center">
+              <div className="w-full flex justify-center items-center">
                 <span>MORE ABOUT ME</span>
 
                 <svg
