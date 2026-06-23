@@ -47,7 +47,7 @@ const About = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="container mx-auto px-4">
       <div className="py-50">
         <h1 className="text-center font-bold text-3xl tracking-[0.5rem]">
           ABOUT{" "}
@@ -59,14 +59,14 @@ const About = () => {
         {user.map((item, index) => (
           <div
             key={index}
-            className="border border-green-400 w-100 h-150 flex justify-center items-center relative rounded-3xl mt-30"
+            className="border border-green-400 w-full max-w-5xl mx-auto flex flex-col lg:flex-row items-center rounded-3xl mt-20 p-6 gap-10"
           >
             <img
               src={item.profile_image}
               alt=""
-              className="scale-x-[-1] w-full absolute -top-5 left-20 "
+              className="w-60 sm:w-72 md:w-80 lg:w-96 object-cover rounded-xl"
             />
-            <div className="absolute w-200 h-100 bg-black left-90 rounded-2xl p-10">
+            <div className="w-full lg:w-1/2 bg-black rounded-2xl p-6 sm:p-8">
               <p className="font-bold text-2xl tracking-[0.2rem]">
                 {item.full_name}
               </p>
@@ -74,7 +74,7 @@ const About = () => {
                 IT Engineering Student, Fullstack Developer
               </p>
               <p className="mt-10">{item.bio}</p>
-              <div className="flex flex-row gap-4 justify-start mt-3">
+              <div className="flex flex-wrap gap-4 mt-6">
                 {iconconnect.map((item, index) => (
                   <div key={index} className="flex flex-row">
                     <a href={item.link}>
