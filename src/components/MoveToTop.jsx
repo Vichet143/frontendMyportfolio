@@ -26,7 +26,7 @@ const MoveToTop = () => {
     <button
       type="button"
       onClick={scrollToTop}
-      className="fixed bottom-5 right-5 z-30 inline-flex items-center justify-center rounded-full bg-green-400 p-4 text-black shadow-lg shadow-black/20 transition-opacity duration-300 hover:bg-green-500 focus:outline-none focus:ring-4 focus:ring-green-300"
+      className="fixed bottom-5 right-5 z-30 inline-flex items-center justify-center rounded-full bg-green-400/50 p-4 text-white shadow-lg shadow-black/20 transition-opacity duration-300 hover:bg-green-500 focus:outline-none focus:ring-4 focus:ring-green-300"
       aria-label="Scroll to top"
     >
       <svg
