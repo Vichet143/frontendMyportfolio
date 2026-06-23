@@ -48,7 +48,7 @@ const About = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="py-50">
+      <div className="py-40">
         <h1 className="text-center font-bold text-3xl tracking-[0.5rem]">
           ABOUT{" "}
           <span className="px-3 py-1 border border-green-400 rounded">ME</span>

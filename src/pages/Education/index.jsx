@@ -4,7 +4,7 @@ import CartEducation from "../../components/CartEducation";
 const Education = () => {
   return (
     <div>
-      <div className="container mx-auto px-4 py-50">
+      <div className="container mx-auto px-4 py-40">
         <h1 className="text-center font-bold text-2xl sm:text-3xl tracking-wide sm:tracking-[0.3rem] uppercase">
           <span className="px-3 py-1 bg-green-400 rounded text-black">
             Education

@@ -6,7 +6,7 @@ const Project = () => {
   const [filter, setFilter] = useState("all");
 
   return (
-    <div className="my-50">
+    <div className="my-40">
       <div className="container">
         <h1 className="text-center font-bold text-2xl sm:text-3xl tracking-wide sm:tracking-[0.3rem] uppercase">
           My Projects
