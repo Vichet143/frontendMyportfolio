@@ -1,44 +1,28 @@
 import LightRays from "../../components/LightRays";
 import Cart from "../../components/Cart";
-import UserService from "../../service/UserService";
-import { useEffect, useState } from "react";
 import CartAboutMe from "../../components/CartAboutMe";
 import CartProject from "../../components/CartProject";
 import MoveToTop from "../../components/MoveToTop";
 
 const Home = () => {
-  const [user,setUser] = useState([]);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const data = await UserService.getDataUser();
-        console.log(data);
-        setUser(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchUser();
-  },[]);
 
   return (
-    <div className="pb-10 container">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-10">
       <LightRays />
       <div className="mt-40">
         <Cart />
       </div>
       <div className="flex justify-center">
-        <div className="px-3 py-2 w-30 rounded border border-green-400 text-center mt-40">
+        <div className="px-4 py-2 rounded border border-green-400 text-center mt-20 lg:mt-40">
           <h1 className="text-white text-[15px]">ABOUT ME</h1>
         </div>
       </div>
-      <h1 className="text-white text-center text-4xl font-bold py-6">
+      <h1 className="text-white text-center text-3xl sm:text-4xl lg:text-5xl font-bold py-6">
         WHO <span className="text-green-400">AM</span> I
       </h1>
-      <div className="max-w-4xl mx-auto my-10">
-        <p className="text-gray-400 text-lg text-center whitespace-normal break-words">
+      <div className="max-w-4xl mx-auto my-8 px-4">
+        <p className="text-gray-400 text-base sm:text-lg leading-8 text-center">
           I am a 4th-year Information Technology Engineering student
           specializing in full-stack development. I can work with both frontend
           and backend technologies to build modern, responsive, and efficient
@@ -70,9 +54,9 @@ const Home = () => {
         </a>
       </div>
 
-      <h1 className="text-center text-3xl font-bold mt-30">
+      <h1 className="text-center text-3xl sm:text-4xl font-bold mt-20">
         Featured{" "}
-        <span className=" px-5 py-2 rounded border border-green-400 ml-2">
+        <span className=" inline-block mt-4 sm:mt-0 px-4 py-2 rounded border border-green-400 ">
           Projects
         </span>
       </h1>
@@ -104,8 +88,8 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="my-20 flex justify-center bg-black items-center rounded h-150 mt-50 flex-col">
-        <h1 className="text-4xl uppercase font-bold text-center w-200 leading-18 text-gray-100 tracking-[0.5rem]">
+      <div className="my-20 mt-32 bg-black rounded-xl flex flex-col justify-center items-center px-6 py-20">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl uppercase font-bold text-center max-w-6xl leading-relaxed tracking-wide text-gray-100">
           {" "}
           <span className="px-3 py1 bg-green-400 rounded text-black">
             Thank you
@@ -115,13 +99,13 @@ const Home = () => {
             collaboration
           </span>
         </h1>
-        <p className="text-center w-120 my-10 text-gray-400">
+        <p className="max-w-2xl text-center text-gray-400 text-base sm:text-lg my-8">
           I'm currently available for freelance work and internship
           opportunities.
         </p>
         <div className="flex justify-center mt-5">
           <a
-            class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
+            class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
             href="#"
           >
             <span>GET IN TOUCH</span>

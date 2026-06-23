@@ -416,23 +416,25 @@ void main() {
   const [user, setUser] = useState([]);
 
   const iconconnect = [
-  {
-    icon: github,
-    link: user.map((item) => item.github_url)
-  },
-  {
-    icon: telegram,
-    link: user.map((item) => item.telegram_url)
-  },
-  {
-    icon: linkedin,
-    link: user.map((item) => item.linkedin_url)
-  },
-  {
-    icon: email,
-    link: user.map((item) => `https://mail.google.com/mail/?view=cm&to=${item.email}`),
-  },
-];
+    {
+      icon: github,
+      link: user.map((item) => item.github_url),
+    },
+    {
+      icon: telegram,
+      link: user.map((item) => item.telegram_url),
+    },
+    {
+      icon: linkedin,
+      link: user.map((item) => item.linkedin_url),
+    },
+    {
+      icon: email,
+      link: user.map(
+        (item) => `https://mail.google.com/mail/?view=cm&to=${item.email}`,
+      ),
+    },
+  ];
 
   useEffect(() => {
     const fetchDatauser = async () => {
@@ -443,75 +445,80 @@ void main() {
   }, []);
 
   return (
-    <div className=" relative">
+    <div className=" relative min-h-screen overflow-hidden">
       <div
         ref={containerRef}
-        className={`w-full h-screen pointer-events-none z-3 overflow-hidden relative ${className}`.trim()}
+        className={`sm:max-w[640px] md:min-w-3xl lg:min-w-5xl xl:min-w-7xl mx-auto h-screen pointer-events-none z-3 overflow-hidden relative ${className}`.trim()}
       />
-      <div className="absolute top-[5%] w-full flex justify-between">
-        <div className="w-150 pt-60">
+      <div className="absolute inset-0 flex flex-col-reverse lg:flex-row items-center justify-center px-6 sm:px-10 lg:px-20">
+        <div className="max-w-xl lg:max-w-2xl text-center lg:text-left pt-20 lg:pt-0">
           <div className="flex items-center">
-            <div className="border-l border-l-green-400 w-[10px] h-[30px]"></div>
-            <h1 className="text-green-400 text-[1rem] tracking-[0.5rem]">
+            <div className="border-l border-l-green-400 w-2.5 h-7.5"></div>
+            <h1 className="text-green-400 text-sm sm:text-base tracking-[0.4rem]">
               BUILDING
             </h1>
           </div>
-          <h1 className="text-white text-[4rem] tracking-[0.5rem] my-2 font-bold">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-wide my-4 leading-tight">
             MODERN <span className="text-green-400">WEB</span>
           </h1>
-          <p className="text-gray-400 mb-10">
+          <p className="text-gray-400 text-sm sm:text-base leading-7 max-w-lg mx-auto lg:mx-0 mb-8">
             IT Engineering student focused on software development, web
             applications, and AI integration. I build practical projects with
             clean code, strong fundamentals, and real-world impact.
           </p>
-          <a
-            class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-            href="/projects"
-          >
-            <span>EXPLORE MY PROJECT</span>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 group-hover:text-green-400 rtl:rotate-180"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a
+              class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
+              href="/projects"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-              ></path>
-            </svg>
-          </a>
-          <a
-            class="group inline-flex items-center gap-4 rounded-full border ml-5 border-green-400 bg-green-400 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-            href="/about"
-          >
-            <span>MORE ABOUT ME</span>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-4 text-white transition-transform group-hover:translate-x-0.5 rtl:rotate-180"
+              <div className="w-full flex justify-center">
+                <span>EXPLORE MY PROJECT</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 group-hover:text-green-400 rtl:rotate-180"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                  ></path>
+                </svg>
+              </div>
+            </a>
+            <a
+              class="group inline-flex items-center gap-4 rounded-full border border-green-400 bg-green-400 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
+              href="/about"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-              ></path>
-            </svg>
-          </a>
+              <div className="w-full flex justify-center">
+                <span>MORE ABOUT ME</span>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4 text-white transition-transform group-hover:translate-x-0.5 rtl:rotate-180"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                  ></path>
+                </svg>
+              </div>
+            </a>
+          </div>
         </div>
-        <div className="w-150 mr-10">
+        <div className="sm:w-50 md:w-80 lg:120 xl:w-150 mr-30">
           <img src={photo} alt="sdf" />
         </div>
         <div
-          className="absolute top-[110%] left-[45%] flex gap-1 text-[12px] animate-bounce cursor-pointer"
+          className="absolute hidden md:bottom-[5%] left-[45%] lg:flex gap-1 text-[12px] animate-bounce cursor-pointer"
           onClick={() =>
             window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
           }
