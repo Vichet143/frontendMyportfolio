@@ -90,7 +90,7 @@ const Home = () => {
       </div>
 
       <div className="my-20 mt-32 bg-black rounded-xl flex flex-col justify-center items-center px-6 py-20">
-        <h1 className="text-2xl sm:text-3xl lg:text-5xl uppercase font-bold text-center max-w-6xl leading-relaxed tracking-wide text-gray-100">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl uppercase font-bold text-center max-w-6xl leading-relaxed tracking-wide text-gray-100">
           {" "}
           <span className="px-3 py1 bg-green-400 rounded text-black">
             Thank you
@@ -105,9 +105,9 @@ const Home = () => {
           opportunities.
         </p>
         <div className="flex justify-center mt-5">
-          <a
+          <Link
             class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-            href="#"
+            to="/contact"
           >
             <span>GET IN TOUCH</span>
 
@@ -125,7 +125,7 @@ const Home = () => {
                 d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
               ></path>
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
       <MoveToTop />
