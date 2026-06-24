@@ -3,6 +3,7 @@ import Cart from "../../components/Cart";
 import CartAboutMe from "../../components/CartAboutMe";
 import CartProject from "../../components/CartProject";
 import MoveToTop from "../../components/MoveToTop";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -31,9 +32,9 @@ const Home = () => {
       </div>
       <CartAboutMe />
       <div className="flex justify-center mt-20 mb-40">
-        <a
+        <Link
           class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-          href="/about"
+          to="/about"
         >
           <span>MORE ABOUT ME</span>
 
@@ -51,7 +52,7 @@ const Home = () => {
               d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
             ></path>
           </svg>
-        </a>
+        </Link>
       </div>
 
       <h1 className="text-center text-3xl sm:text-4xl font-bold mt-20">
@@ -65,9 +66,9 @@ const Home = () => {
       </p>
       <CartProject />
       <div className="flex justify-center my-10">
-        <a
+        <Link
           class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-          href="/projects"
+          to="/projects"
         >
           <span>VIEW MORE PROJECTS</span>
 
@@ -85,7 +86,7 @@ const Home = () => {
               d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
             ></path>
           </svg>
-        </a>
+        </Link>
       </div>
 
       <div className="my-20 mt-32 bg-black rounded-xl flex flex-col justify-center items-center px-6 py-20">
