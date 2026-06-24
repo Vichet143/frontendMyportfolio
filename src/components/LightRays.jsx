@@ -514,7 +514,7 @@ void main() {
             </a>
           </div>
         </div>
-        <div className="sm:w-50 md:w-80 lg:120 xl:w-150 mr-30">
+        <div className="sm:w-50 md:w-80 mt-50 sm:mt-0 lg:120 xl:w-150 mr-30">
           <img src={photo} alt="sdf" />
         </div>
         <div
