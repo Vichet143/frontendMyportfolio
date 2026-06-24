@@ -27,10 +27,15 @@ const CartProject = ({ filter = "all" }) => {
           (item) => item.project_type?.toLowerCase() === filter,
         );
 
+  const isHome = location.pathname === "/";
+  const displayedProjects = isHome
+    ? filteredProjects.slice(0, 3)
+    : filteredProjects;
+
   return (
     <div className="flex flex-wrap justify-center gap-5 my-4 px-4">
-      {filteredProjects.length > 0 ? (
-        filteredProjects.map((item, index) => (
+      {displayedProjects.length > 0 ? (
+        displayedProjects.map((item, index) => (
           <div
             key={index}
             className="group relative w-full sm:w-87.5 lg:w-95 p-6 border border-green-400 rounded-3xl shadow-md transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl"
@@ -150,8 +155,7 @@ const CartProject = ({ filter = "all" }) => {
             No certifications found.
           </h2>
           <p className="text-gray-500 mt-2">
-            There are no {filter === "all" ? "" : filter} projects
-            available.
+            There are no {filter === "all" ? "" : filter} projects available.
           </p>
         </div>
       )}
