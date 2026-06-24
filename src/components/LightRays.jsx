@@ -6,6 +6,7 @@ import telegram from "../assets/image/telegram.png";
 import linkedin from "../assets/image/linkedin.png";
 import github from "../assets/image/gtihub.png";
 import UserService from "../service/UserService";
+import { Link } from "react-router-dom";
 
 const DEFAULT_COLOR = "#ffffff";
 
@@ -467,35 +468,36 @@ void main() {
             clean code, strong fundamentals, and real-world impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a
-              class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-              href="/projects"
+            <Link
+              className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
+              to="/projects"
             >
               <div className="w-full flex justify-center items-center">
                 <span>EXPLORE MY PROJECT</span>
+                <div className="mr-2"></div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
-                  class="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 group-hover:text-green-400 rtl:rotate-180"
+                  className="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 rtl:rotate-180"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                  ></path>
+                  />
                 </svg>
               </div>
-            </a>
-            <a
+            </Link>
+            <Link
               class="group inline-flex items-center gap-4 rounded-full border border-green-400 bg-green-400 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-              href="/about"
+              to="/about"
             >
               <div className="w-full flex justify-center items-center">
                 <span>MORE ABOUT ME</span>
-
+                <div className="mr-2"></div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -511,7 +513,7 @@ void main() {
                   ></path>
                 </svg>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="sm:w-50 md:w-80 mt-50 sm:mt-0 lg:120 xl:w-150 mr-30">
