@@ -445,7 +445,7 @@ void main() {
   }, []);
 
   return (
-    <div className=" relative min-h-screen overflow-hidden">
+    <div className=" relative min-h-screen">
       <div
         ref={containerRef}
         className={`sm:max-w[640px] md:min-w-3xl lg:min-w-5xl xl:min-w-7xl mx-auto h-screen pointer-events-none z-3 overflow-hidden relative ${className}`.trim()}
