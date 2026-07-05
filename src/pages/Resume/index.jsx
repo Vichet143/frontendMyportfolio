@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MoveToTop from "../../components/MoveToTop";
 import UserService from "../../service/UserService";
 import { FaDownload } from "react-icons/fa6";
+import resumePdf from "../../assets/Choub_Vichet_Full_Stack_Development.pdf";
 
 const Resume = () => {
   const [filter, setFilter] = useState("skills");
@@ -335,8 +336,8 @@ const Resume = () => {
         </div>
         <div className="flex justify-center mt-10">
           <a
-            href="/resume.pdf"
-            download
+            href={resumePdf}
+            download="Choub_Vichet_Full_Stack_Development.pdf"
             className="inline-flex items-center rounded-full bg-green-400 px-8 py-3 text-xs sm:text-sm font-semibold text-slate-950 transition duration-200 hover:bg-green-300"
           >
             <div className="flex gap-5 items-center">
