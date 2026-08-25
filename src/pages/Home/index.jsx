@@ -4,38 +4,36 @@ import CartAboutMe from "../../components/CartAboutMe";
 import CartProject from "../../components/CartProject";
 import MoveToTop from "../../components/MoveToTop";
 import { Link } from "react-router-dom";
-import { trackMetaEvent } from "../../../src/utils/metaPixel";
 import { useMetaPixel } from "@adkit/meta-pixel-react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const handleAboutMeClick = () => {
-    console.log("MORE ABOUT ME clicked");
-
-    trackMetaEvent("ViewContent", {
-      content_name: "About Me",
-    });
-  };
-
   const meta = useMetaPixel();
+  const navigate = useNavigate();
+  const handleAboutMeClick = (e) => {
+    e.preventDefault(); // Stop immediate navigation
 
-  function handleClick() {
-    meta.track('ViewContent', { content_name: 'About Me' });
-  }
+    console.log("Tracking About Me...");
+
+    // Fire the event
+    meta.trackCustom("trackCustom", "About me clicked");
+
+    // Small delay to ensure Pixel sends the data before page change
+    setTimeout(() => {
+      navigate("/about");
+    }, 100);
+  };
 
   const handleProjectsClick = () => {
     console.log("VIEW MORE PROJECTS clicked");
 
-    trackMetaEvent("ViewContent", {
-      content_name: "Projects",
-    });
+    meta.trackCustom("trackCustom", "VIEW MORE PROJECTS clicked");
   };
 
   const handleContactClick = () => {
     console.log("GET IN TOUCH clicked");
 
-    trackMetaEvent("Contact", {
-      content_name: "Get In Touch",
-    });
+    meta.trackCustom("trackCustom", "GET IN TOUCH clicked");
   };
 
   return (
@@ -70,10 +68,10 @@ const Home = () => {
 
       {/* MORE ABOUT ME */}
       <div className="flex justify-center mt-20 mb-40">
-        <Link
+        <button
           className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
           to="/about"
-          onClick={handleClick}
+          onClick={handleAboutMeClick}
         >
           <span>MORE ABOUT ME</span>
 
@@ -91,7 +89,7 @@ const Home = () => {
               d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
             />
           </svg>
-        </Link>
+        </button>
       </div>
 
       {/* PROJECTS */}

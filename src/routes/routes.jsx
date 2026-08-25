@@ -14,7 +14,9 @@ export default function AppRoutes() {
   const location = useLocation();
 
   useEffect(() => {
-    meta.track("PageView");
+    if (meta.isLoaded()) {
+      meta.track("PageView");
+    }
   }, [location.pathname]);
   return (
     <Routes>

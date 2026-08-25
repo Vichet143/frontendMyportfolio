@@ -5,14 +5,19 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import LoadingApp from "./components/LoadingApp";
-import { MetaPixelProvider } from '@adkit/meta-pixel-react';
+import { MetaPixelProvider } from "@adkit/meta-pixel-react";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <LoadingApp>
-        <MetaPixelProvider pixelIds="1039264842049484" debug={true}>
-        <App />
+        <MetaPixelProvider
+          pixelIds="1039264842049484"
+          enableLocalhost={true}
+          debug={true}
+          autoTrackPageView={true}
+        >
+          <App />
         </MetaPixelProvider>
       </LoadingApp>
     </BrowserRouter>
