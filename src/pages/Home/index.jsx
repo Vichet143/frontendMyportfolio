@@ -6,8 +6,6 @@ import MoveToTop from "../../components/MoveToTop";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-
-
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-10">
       <LightRays />
@@ -33,8 +31,13 @@ const Home = () => {
       <CartAboutMe />
       <div className="flex justify-center mt-20 mb-40">
         <Link
-          class="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
+          className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
           to="/about"
+          onClick={() => {
+            if (window.fbq) {
+              window.fbq("trackCustom", "MoreAboutMeClick");
+            }
+          }}
         >
           <span>MORE ABOUT ME</span>
 
@@ -42,15 +45,15 @@ const Home = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
-            class="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 group-hover:text-green-400 rtl:rotate-180"
+            className="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 group-hover:text-green-400 rtl:rotate-180"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-            ></path>
+            />
           </svg>
         </Link>
       </div>
