@@ -33,9 +33,17 @@ const Home = () => {
         <Link
           className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
           to="/about"
-          onClick={() => {
-            if (window.fbq) {
-              window.fbq("trackCustom", "MoreAboutMeClick");
+          onClick={(e) => {
+            console.log("MORE ABOUT ME clicked");
+
+            if (typeof window.fbq === "function") {
+              console.log("Meta Pixel is ready");
+
+              window.fbq("track", "ViewContent", {
+                content_name: "About Me",
+              });
+            } else {
+              console.error("Meta Pixel fbq is NOT loaded");
             }
           }}
         >
