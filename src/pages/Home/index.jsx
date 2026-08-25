@@ -5,6 +5,7 @@ import CartProject from "../../components/CartProject";
 import MoveToTop from "../../components/MoveToTop";
 import { Link } from "react-router-dom";
 import { trackMetaEvent } from "../../../src/utils/metaPixel";
+import { useMetaPixel } from "@adkit/meta-pixel-react";
 
 const Home = () => {
   const handleAboutMeClick = () => {
@@ -14,6 +15,12 @@ const Home = () => {
       content_name: "About Me",
     });
   };
+
+  const meta = useMetaPixel();
+
+  function handleClick() {
+    meta.track('ViewContent', { content_name: 'About Me' });
+  }
 
   const handleProjectsClick = () => {
     console.log("VIEW MORE PROJECTS clicked");
@@ -42,9 +49,7 @@ const Home = () => {
       {/* ABOUT ME TITLE */}
       <div className="flex justify-center">
         <div className="px-4 py-2 rounded border border-green-400 text-center mt-20 lg:mt-40">
-          <h1 className="text-white text-[15px]">
-            ABOUT ME
-          </h1>
+          <h1 className="text-white text-[15px]">ABOUT ME</h1>
         </div>
       </div>
 
@@ -55,9 +60,9 @@ const Home = () => {
       <div className="max-w-4xl mx-auto my-8 px-4">
         <p className="text-gray-400 text-base sm:text-lg leading-8 text-center">
           I am a 4th-year Information Technology Engineering student
-          specializing in full-stack development. I can work with both
-          frontend and backend technologies to build modern, responsive,
-          and efficient web applications.
+          specializing in full-stack development. I can work with both frontend
+          and backend technologies to build modern, responsive, and efficient
+          web applications.
         </p>
       </div>
 
@@ -68,7 +73,7 @@ const Home = () => {
         <Link
           className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
           to="/about"
-          onClick={handleAboutMeClick}
+          onClick={handleClick}
         >
           <span>MORE ABOUT ME</span>
 

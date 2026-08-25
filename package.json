@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@adkit/meta-pixel-react": "^1.1.2",
     "@gsap/react": "^2.1.2",
     "@tailwindcss/vite": "^4.3.1",
     "axios": "^1.18.0",
