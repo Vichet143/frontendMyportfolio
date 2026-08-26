@@ -14,10 +14,26 @@ export default function AppRoutes() {
   const location = useLocation();
 
   useEffect(() => {
-    if (meta.isLoaded()) {
-      meta.track("PageView");
+    if (!meta.isLoaded()) return;
+
+    const pageEvents = {
+      "/": "PageView: Home",
+      "/about": "PageView: About",
+      "/education": "PageView: Education",
+      "/projects": "PageView: Projects",
+      "/resume": "PageView: Resume",
+      "/contact": "PageView: Contact",
+    };
+
+    const eventName = pageEvents[location.pathname];
+
+    if (eventName) {
+      meta.track(eventName, {
+        page_path: location.pathname,
+        page_title: document.title,
+      });
     }
-  }, [location.pathname]);
+  }, [location.pathname, meta]);
   return (
     <Routes>
       <Route path="/" element={<Home />} />

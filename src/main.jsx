@@ -12,7 +12,7 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <LoadingApp>
         <MetaPixelProvider
-          pixelIds="1039264842049484"
+          pixelIds="2071247553480678"
           enableLocalhost={true}
           debug={true}
           autoTrackPageView={true}

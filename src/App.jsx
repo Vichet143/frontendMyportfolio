@@ -3,7 +3,7 @@ import { useMetaPixel } from '@adkit/meta-pixel-react';
 
 function App() {
   useMetaPixel({
-    pixelIds: "1039264842049484",
+    pixelIds: "2071247553480678",
     enableLocalhost: true,
     debug: true,
   });
