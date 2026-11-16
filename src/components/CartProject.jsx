@@ -33,17 +33,17 @@ const CartProject = ({ filter = "all" }) => {
     : filteredProjects;
 
   return (
-    <div className="flex flex-wrap justify-center gap-5 my-4 px-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-4 px-4">
       {displayedProjects.length > 0 ? (
         displayedProjects.map((item, index) => (
           <div
             key={index}
-            className="group relative w-full sm:w-87.5 lg:w-95 p-6 border border-green-400 rounded-3xl shadow-md transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl"
+            className="card-glow group flex flex-col p-5"
           >
             {/* Project Type */}
-            <div className="absolute top-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded bg-white-opacity ">
+            <div className="absolute top-8 left-8 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-green-400/50">
               <img
-                className={`brightness-0 invert ${item.project_type === "Mobile" ? "w-4" : "w-8"}`}
+                className={`brightness-0 invert ${item.project_type === "Mobile" ? "w-3" : "w-5"}`}
                 src={
                   item.project_type === "Website"
                     ? iconprojectweb
@@ -59,45 +59,44 @@ const CartProject = ({ filter = "all" }) => {
             </div>
 
             {/* Image */}
-            <div className="overflow-hidden rounded-lg">
+            <div className="overflow-hidden rounded-xl border border-white/10">
               <img
                 src={item.image_url}
                 alt={item.title}
-                className="w-full h-52 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                loading="lazy"
+                className="w-full h-52 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
               />
             </div>
 
             {/* Title */}
-            <h5 className="mt-6 mb-2 text-2xl font-semibold text-white">
+            <h3 className="mt-5 mb-2 text-xl font-semibold text-white">
               {item.title}
-            </h5>
+            </h3>
 
             {/* Description */}
-            <p className="mb-6 text-gray-400 text-sm min-h-35">
+            <p className="mb-5 text-gray-400 text-sm leading-6 line-clamp-5">
               {item.description}
             </p>
 
             {/* Skills */}
-            <div className="min-h-22.5">
-              <div className="flex flex-wrap gap-2 text-[13px] mb-10 mt-5">
-                {item.project_skill.map((skill, index2) => (
-                  <p
-                    key={index2}
-                    className="bg-green-400 px-3 py-1 rounded text-gray-900 font-bold"
-                  >
-                    {skill}
-                  </p>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-2 text-xs mb-6 mt-auto">
+              {item.project_skill?.map((skill, index2) => (
+                <span
+                  key={index2}
+                  className="bg-green-400/10 border border-green-400/40 px-3 py-1 rounded-full text-green-300 font-semibold"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
 
             {/* Footer */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center pt-4 border-t border-white/10">
               <a
                 href={item.github_uril_frontend}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-slate-300 px-3 py-2 text-sm font-semibold text-white transition-all duration-300 hover:border-green-400"
+                className="btn-outline px-4! py-2! w-full sm:w-auto"
               >
                 <span className="text-[11px]">FRONTEND CODE</span>
 
@@ -121,7 +120,7 @@ const CartProject = ({ filter = "all" }) => {
                   href={item.github_uril_backend}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-slate-300 px-3 py-2 text-sm font-semibold text-white transition-all duration-300 hover:border-green-400"
+                  className="btn-outline px-4! py-2! w-full sm:w-auto"
                 >
                   <span className="text-[11px]">BACKEND CODE</span>
 

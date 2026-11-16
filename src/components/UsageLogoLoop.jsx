@@ -94,7 +94,7 @@ const UsageLogoLoop = () => {
     <div className="flex justify-center">
       <div
         style={{
-          height: "220px",
+          height: "120px",
           position: "relative",
           overflow: "hidden",
           width: "100%",
@@ -111,6 +111,8 @@ const UsageLogoLoop = () => {
           scaleOnHover
           ariaLabel="Technology logos"
           useCustomRender={false}
+          fadeOut
+          fadeOutColor="#0D111C"
         />
       </div>
     </div>

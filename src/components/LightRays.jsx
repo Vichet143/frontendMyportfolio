@@ -468,56 +468,50 @@ void main() {
             clean code, strong fundamentals, and real-world impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link
-              className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-              to="/projects"
-            >
-              <div className="w-full flex justify-center items-center">
-                <span>EXPLORE MY PROJECT</span>
-                <div className="mr-2"></div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 rtl:rotate-180"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                  />
-                </svg>
-              </div>
+            <Link className="group btn-light" to="/projects">
+              <span>EXPLORE MY PROJECT</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="currentColor"
+                aria-hidden="true"
+                className="size-4 text-green-500 transition-transform group-hover:translate-x-1"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                />
+              </svg>
             </Link>
-            <Link
-              class="group inline-flex items-center gap-4 rounded-full border border-green-400 bg-green-400 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-              to="/about"
-            >
-              <div className="w-full flex justify-center items-center">
-                <span>MORE ABOUT ME</span>
-                <div className="mr-2"></div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-4 text-white transition-transform group-hover:translate-x-0.5 rtl:rotate-180"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                  ></path>
-                </svg>
-              </div>
+            <Link className="group btn-green" to="/about">
+              <span>MORE ABOUT ME</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="currentColor"
+                aria-hidden="true"
+                className="size-4 text-green-950 transition-transform group-hover:translate-x-1"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                />
+              </svg>
             </Link>
           </div>
         </div>
         <div className="sm:w-50 md:w-80 mt-50 sm:mt-0 lg:120 xl:w-150 mr-30">
-          <img src={photo} alt="sdf" />
+          <img
+            src={photo}
+            alt="Vichet Choub portrait"
+            className="fade-bottom w-full h-auto"
+          />
         </div>
         <div
           className="absolute hidden md:bottom-[5%] left-[45%] lg:flex gap-1 text-[12px] animate-bounce cursor-pointer"
@@ -542,17 +536,17 @@ void main() {
           </svg>
         </div>
 
-        <div className="w-20 h-20 invert absolute top-[30%] right-0">
+        <div className="absolute top-[30%] right-2 sm:right-6 hidden md:flex flex-col gap-4">
           {iconconnect.map((item, index) => (
-            <div key={index}>
-              <a href={item.link}>
-                <img
-                  className="border border-gray-400 rounded-full w-15 p-2 my-5 hover:translate-1.5 duration-300 transition-transform"
-                  src={item.icon}
-                  alt=""
-                />
-              </a>
-            </div>
+            <a
+              key={index}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex size-12 items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm transition duration-300 hover:-translate-x-1 hover:border-green-400 hover:bg-green-400/10"
+            >
+              <img className="size-5 invert" src={item.icon} alt="" />
+            </a>
           ))}
         </div>
       </div>
