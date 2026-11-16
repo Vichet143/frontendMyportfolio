@@ -1,32 +1,31 @@
 import CardCertification from "../../components/CardCertification";
 import CartEducation from "../../components/CartEducation";
+import SectionHeading from "../../components/SectionHeading";
 
 const Education = () => {
   return (
-    <div>
-      <div className="container mx-auto px-4 py-40">
-        <h1 className="text-center font-bold text-2xl sm:text-3xl tracking-wide sm:tracking-[0.3rem] uppercase">
-          <span className="px-3 py-1 bg-green-400 rounded text-black">
-            Education
-          </span>{" "}
-          Background
-        </h1>
-        <div className="flex justify-center mt-5 text-gray-400">
-          <p className="text-center w-full max-w-3xl tracking-wide px-2">
-            My academic journey, courses, and educational achievements that have
-            shaped my technical expertise.
-          </p>
-        </div>
-        <div className="mt-10">
-          <CartEducation />
-        </div>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40">
+      <SectionHeading
+        eyebrow="Academic journey"
+        title="Education"
+        highlight="Background"
+        subtitle="My academic journey, courses, and educational achievements that have shaped my technical expertise."
+      />
 
-        <h1 className="text-center uppercase mt-20 sm:mt-30 font-bold text-xl sm:text-2xl tracking-wide sm:tracking-[0.5rem]">
-          Certifications
-        </h1>
-        <div className="mt-10 flex justify-center">
-          <CardCertification />
-        </div>
+      <div className="mt-14">
+        <CartEducation />
+      </div>
+
+      <SectionHeading
+        className="mt-28"
+        as="h2"
+        eyebrow="Achievements"
+        title="My"
+        highlight="Certifications"
+      />
+
+      <div className="mt-12">
+        <CardCertification />
       </div>
     </div>
   );

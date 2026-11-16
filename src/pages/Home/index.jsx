@@ -7,6 +7,24 @@ import { Link } from "react-router-dom";
 import { useMetaPixel } from "@adkit/meta-pixel-react";
 import { useNavigate } from "react-router-dom";
 
+const ArrowIcon = ({ className = "text-green-500" }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="2"
+    stroke="currentColor"
+    aria-hidden="true"
+    className={`size-4 transition-transform group-hover:translate-x-1 ${className}`}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+    />
+  </svg>
+);
+
 const Home = () => {
   const meta = useMetaPixel();
   const navigate = useNavigate();
@@ -40,101 +58,79 @@ const Home = () => {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-10">
       <LightRays />
 
-      <div className="mt-50 sm:mt-5 md:mt-5 lg:mt-20 xl:mt-40">
-        <Cart />
-      </div>
-
-      {/* ABOUT ME TITLE */}
-      <div className="flex justify-center">
-        <div className="px-4 py-2 rounded border border-green-400 text-center mt-20 lg:mt-40">
-          <h1 className="text-white text-[15px]">ABOUT ME</h1>
+      {/* CORE VALUES */}
+      <section className="mt-10 lg:mt-24">
+        <div className="text-center mb-12">
+          <span className="eyebrow">What drives me</span>
+          <h2 className="text-white text-3xl sm:text-4xl font-bold mt-5">
+            My Core <span className="text-green-400">Values</span>
+          </h2>
         </div>
-      </div>
+        <Cart />
+      </section>
 
-      <h1 className="text-white text-center text-3xl sm:text-4xl lg:text-5xl font-bold py-6">
-        WHO <span className="text-green-400">AM</span> I
-      </h1>
+      {/* ABOUT ME */}
+      <section className="mt-28 lg:mt-40">
+        <div className="text-center">
+          <span className="eyebrow">About me</span>
+          <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mt-5">
+            WHO <span className="text-green-400">AM</span> I
+          </h2>
+          <p className="text-gray-400 text-base sm:text-lg leading-8 max-w-3xl mx-auto mt-6 mb-12">
+            I am a 4th-year Information Technology Engineering student
+            specializing in full-stack development. I can work with both
+            frontend and backend technologies to build modern, responsive, and
+            efficient web applications.
+          </p>
+        </div>
 
-      <div className="max-w-4xl mx-auto my-8 px-4">
-        <p className="text-gray-400 text-base sm:text-lg leading-8 text-center">
-          I am a 4th-year Information Technology Engineering student
-          specializing in full-stack development. I can work with both frontend
-          and backend technologies to build modern, responsive, and efficient
-          web applications.
-        </p>
-      </div>
+        <CartAboutMe />
 
-      <CartAboutMe />
-
-      {/* MORE ABOUT ME */}
-      <div className="flex justify-center mt-20 mb-40">
-        <button
-          className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-          to="/about"
-          onClick={handleAboutMeClick}
-        >
-          <span>MORE ABOUT ME</span>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 group-hover:text-green-400 rtl:rotate-180"
+        <div className="flex justify-center mt-12">
+          <button
+            type="button"
+            className="group btn-light"
+            onClick={handleAboutMeClick}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-            />
-          </svg>
-        </button>
-      </div>
+            <span>MORE ABOUT ME</span>
+            <ArrowIcon />
+          </button>
+        </div>
+      </section>
 
       {/* PROJECTS */}
-      <h1 className="text-center text-3xl sm:text-4xl font-bold mt-20">
-        Featured{" "}
-        <span className="inline-block mt-4 sm:mt-0 px-4 py-2 rounded border border-green-400">
-          Projects
-        </span>
-      </h1>
+      <section className="mt-28 lg:mt-40">
+        <div className="text-center mb-12">
+          <span className="eyebrow">Portfolio</span>
+          <h2 className="text-white text-3xl sm:text-4xl font-bold mt-5">
+            Featured <span className="text-green-400">Projects</span>
+          </h2>
+          <p className="text-gray-400 mt-4">
+            A selection of my recent web development and programming projects.
+          </p>
+        </div>
 
-      <p className="text-center mt-9 mb-20 text-gray-400">
-        A selection of my recent web development and programming projects.
-      </p>
+        <CartProject />
 
-      <CartProject />
-
-      {/* VIEW MORE PROJECTS */}
-      <div className="flex justify-center my-10">
-        <Link
-          className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-          to="/projects"
-          onClick={handleProjectsClick}
-        >
-          <span>VIEW MORE PROJECTS</span>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 group-hover:text-green-400 rtl:rotate-180"
+        <div className="flex justify-center mt-12">
+          <Link
+            className="group btn-light"
+            to="/projects"
+            onClick={handleProjectsClick}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-            />
-          </svg>
-        </Link>
-      </div>
+            <span>VIEW MORE PROJECTS</span>
+            <ArrowIcon />
+          </Link>
+        </div>
+      </section>
 
       {/* CONTACT */}
-      <div className="my-20 mt-32 bg-black rounded-xl flex flex-col justify-center items-center px-6 py-20">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl uppercase font-bold text-center max-w-6xl leading-relaxed tracking-wide text-gray-100">
+      <section className="relative overflow-hidden my-28 rounded-3xl border border-green-400/30 bg-linear-to-b from-green-400/10 via-black to-black px-6 py-16 sm:py-20 flex flex-col justify-center items-center">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 left-1/2 h-48 w-2/3 -translate-x-1/2 rounded-full bg-green-400/20 blur-3xl"
+        />
+        <h2 className="relative text-2xl sm:text-3xl lg:text-4xl uppercase font-bold text-center max-w-4xl leading-snug sm:leading-relaxed tracking-wide text-gray-100">
           <span className="px-3 py-1 bg-green-400 rounded text-black">
             Thank you
           </span>{" "}
@@ -142,39 +138,22 @@ const Home = () => {
           <span className="px-3 py-1 border border-green-400 rounded">
             collaboration
           </span>
-        </h1>
+        </h2>
 
-        <p className="max-w-2xl text-center text-gray-400 text-base sm:text-lg my-8">
+        <p className="relative max-w-2xl text-center text-gray-400 text-base sm:text-lg mt-8 mb-8">
           I'm currently available for freelance work and internship
           opportunities.
         </p>
 
-        {/* GET IN TOUCH */}
-        <div className="flex justify-center mt-5">
-          <Link
-            className="group inline-flex items-center gap-4 rounded-full border border-slate-300 bg-gray-200 px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-gray-300 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 focus-visible:outline-none"
-            to="/contact"
-            onClick={handleContactClick}
-          >
-            <span>GET IN TOUCH</span>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-4 text-green-400 transition-transform group-hover:translate-x-0.5 group-hover:text-green-400 rtl:rotate-180"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </Link>
-        </div>
-      </div>
+        <Link
+          className="group btn-green relative"
+          to="/contact"
+          onClick={handleContactClick}
+        >
+          <span>GET IN TOUCH</span>
+          <ArrowIcon className="text-green-950" />
+        </Link>
+      </section>
 
       <MoveToTop />
     </div>

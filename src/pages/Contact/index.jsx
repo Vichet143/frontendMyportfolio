@@ -4,6 +4,25 @@ import UserService from "../../service/UserService";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { CiLocationOn } from "react-icons/ci";
+import { FiClock } from "react-icons/fi";
+import SectionHeading from "../../components/SectionHeading";
+
+const EMAIL = "choubvichet1001@gmail.com";
+
+const contactItems = [
+  {
+    name: "Email",
+    icon: AiOutlineMail,
+    text: EMAIL,
+    link: `https://mail.google.com/mail/?view=cm&to=${EMAIL}`,
+  },
+  {
+    name: "Location",
+    icon: CiLocationOn,
+    text: "SonSam Kosal, Phnom Penh, Cambodia",
+    link: "https://maps.app.goo.gl/qzfTrKJkApEBPUrT8",
+  },
+];
 
 const Contact = () => {
   const [user, setUser] = useState([]);
@@ -12,8 +31,7 @@ const Contact = () => {
     const fetchUser = async () => {
       try {
         const data = await UserService.getDataUser();
-        console.log(data);
-        setUser(data);
+        setUser(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error(error);
       }
@@ -22,106 +40,113 @@ const Contact = () => {
     fetchUser();
   }, []);
 
-  const icon = [
-    { name: "Email", icon: AiOutlineMail },
-    { name: "Location", icon: CiLocationOn },
-  ];
+  const profile = user[0];
 
-  const icon2 = [
-    { name: "LinkedIn", icon: SlSocialLinkedin },
-    { name: "Telegram", icon: LiaTelegramPlane },
-  ];
-
-  const data = [
-    {
-      text: "choubvichet1001@gmail.com",
-      link: "https://mail.google.com/mail/?view=cm&to=choubvichet1001@gmail.com",
-    },
-    {
-      text: "SonSam Kosal, Phnom Penh, Cambodia",
-      link: "https://maps.app.goo.gl/qzfTrKJkApEBPUrT8",
-    },
+  const socials = [
+    { name: "LinkedIn", icon: SlSocialLinkedin, link: profile?.linkedin_url },
+    { name: "Telegram", icon: LiaTelegramPlane, link: profile?.telegram_url },
   ];
 
   return (
-    <div className="my-40">
-      <div className="container mx-auto px-4">
-        <h1 className="text-center text-3xl font-bold tracking-[0.3rem] uppercase">
-          Let's Connect
-        </h1>
-        <p className="text-center text-gray-400 mt-5 tracking-[0.1rem]">
-          Open for internships, freelance work, and collaborations.
-        </p>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40">
+      <SectionHeading
+        eyebrow="Get in touch"
+        title="Let's"
+        highlight="Connect"
+        subtitle="Open for internships, freelance work, and collaborations."
+      />
 
-        <div className="flex flex-col lg:flex-row justify-center gap-6 mt-10 lg:mt-20 px-4">
-          <div>
-            <div className="w-full max-w-md bg-black p-6 rounded mx-auto">
-              <h1 className="text-2xl tracking-[0.1rem] font-bold">
-                Contact Information
-              </h1>
-              <div className="mt-10">
-                {data.map((item, index) => {
-                  const Icon = icon[index].icon;
+      <div className="mt-14 grid grid-cols-1 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+        {/* Contact information */}
+        <div className="card-glow hover:transform-none! lg:col-span-3 p-7 sm:p-9">
+          <h2 className="text-2xl font-bold text-white">Contact Information</h2>
+          <p className="text-gray-400 text-sm mt-2">
+            Reach out through any of the channels below.
+          </p>
 
-                  return (
-                    <a key={index} href={item.link}>
-                      <div className="w-full bg-gray-500/20 border border-green-400 rounded p-3 sm:p-2 my-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5 transition-all duration-300 hover:-translate-y-2">
-                        <div className="w-10 h-10 bg-green-400/40 rounded-full flex items-center justify-center">
-                          <Icon className="text-white text-xl" />
-                        </div>
-
-                        <div>
-                          <h1>{icon[index].name}</h1>
-                          <p className="text-gray-400">{item.text}</p>
-                        </div>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
-              <h1 className="font-bold mt-10 tracking-[0.1rem]">
-                Social Media
-              </h1>
-              <div className="flex flex-wrap items-center gap-4 mt-6">
-                {icon2.map((item, index) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <div>
-                      {user.map((userdata) => (
-                        <a
-                          key={index}
-                          href={
-                            index === 0
-                              ? userdata.linkedin_url
-                              : userdata.github_url
-                          }
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group flex h-12 w-12 items-center justify-center rounded-full
-                   bg-gray-800 border border-gray-700
-                   transition-all duration-300 ease-in-out
-                   hover:-translate-y-1 hover:scale-110
-                   hover:border-green-400 hover:bg-green-400/20
-                   hover:shadow-lg hover:shadow-green-400/20"
-                        >
-                          <Icon className="text-xl text-gray-300 transition-colors duration-300 group-hover:text-green-400" />
-                        </a>
-                      ))}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="w-full max-w-md border border-green-400 p-6 rounded mt-10 mx-auto">
-              <h1 className="font-bold tracking-[0.1rem]">Response Time</h1>
-              <p className="tracking-[0.1rem] text-gray-400 text-[13px] mt-2">
-                I strive to respond to all messages as quickly as possible.
-              </p>
-            </div>
+          <div className="mt-8 space-y-4">
+            {contactItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={item.name}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition duration-300 hover:-translate-y-1 hover:border-green-400/60 hover:bg-green-400/5"
+                >
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-green-400/20 bg-green-400/10">
+                    <Icon className="text-2xl text-green-400" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs uppercase tracking-widest text-gray-500">
+                      {item.name}
+                    </p>
+                    <p className="text-white mt-0.5 wrap-break-word">
+                      {item.text}
+                    </p>
+                  </div>
+                </a>
+              );
+            })}
           </div>
 
-          {/* <div className="w-120 h-50 border border-green-400 p-6 rounded"></div> */}
+          <h3 className="text-xs uppercase tracking-widest text-gray-500 mt-10">
+            Social media
+          </h3>
+          <div className="flex flex-wrap items-center gap-3 mt-4">
+            {socials.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={item.name}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.name}
+                  className="group flex size-12 items-center justify-center rounded-full border border-white/20 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-green-400 hover:bg-green-400/10"
+                >
+                  <Icon className="text-xl text-gray-300 transition-colors group-hover:text-green-400" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Availability */}
+        <div className="lg:col-span-2 flex flex-col gap-6">
+          <div className="card-glow hover:transform-none! p-7 sm:p-8">
+            <div className="flex size-12 items-center justify-center rounded-xl border border-green-400/20 bg-green-400/10">
+              <FiClock className="text-xl text-green-400" />
+            </div>
+            <h2 className="font-bold text-white text-xl mt-5">Response Time</h2>
+            <p className="text-gray-400 text-sm leading-7 mt-2">
+              I strive to respond to all messages as quickly as possible.
+            </p>
+          </div>
+
+          <div className="card-glow hover:transform-none! flex-1 p-7 sm:p-8 flex flex-col justify-between gap-6">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-green-400/40 bg-green-400/10 px-3 py-1 text-xs text-green-300">
+                <span className="size-2 rounded-full bg-green-400 animate-pulse" />
+                Available now
+              </span>
+              <h2 className="font-bold text-white text-xl mt-5">
+                Have a project in mind?
+              </h2>
+              <p className="text-gray-400 text-sm leading-7 mt-2">
+                Send me a message and let&apos;s talk about how I can help.
+              </p>
+            </div>
+            <a
+              href={contactItems[0].link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-green self-start"
+            >
+              Send an email
+            </a>
+          </div>
         </div>
       </div>
     </div>

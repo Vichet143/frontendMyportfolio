@@ -63,23 +63,27 @@ const CartMoreAboutMe = () => {
   ];
 
   return (
-    <div className="mt-20 grid gap-6 md:grid-cols-2">
-      {storeData.map((item, index) => (
-        <div key={index} className="rounded-3xl border border-green-400/30 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] transition hover:-translate-y-1 hover:border-green-400">
-          <div className="mb-5 flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-green-400/10 text-green-400">
+    <div className="mt-14 grid gap-6 md:grid-cols-2">
+      {storeData.map((item) => (
+        <div key={item.title} className="card-glow p-7">
+          <div className="mb-6 flex items-center gap-4">
+            <div className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-green-400/20 bg-green-400/10">
               {item.icon}
             </div>
-            <h1 className="font-bold text-xl tracking-[0.1rem] text-white">
-              {item.title}
-            </h1>
+            <h3 className="font-bold text-xl text-white">{item.title}</h3>
           </div>
 
-          {item.datalist.map((item2, index2) => (
-            <p className="mb-3 text-gray-400 text-[14px]" key={index2}>
-              / {item2}
-            </p>
-          ))}
+          <ul className="space-y-3">
+            {item.datalist.map((text) => (
+              <li
+                key={text}
+                className="flex items-start gap-3 text-gray-300 text-sm leading-6"
+              >
+                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-green-400" />
+                {text}
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>

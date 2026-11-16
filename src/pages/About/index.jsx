@@ -47,70 +47,89 @@ const About = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4">
-      <div className="py-40">
-        <h1 className="text-center font-bold text-3xl tracking-[0.5rem]">
-          ABOUT{" "}
-          <span className="px-3 py-1 border border-green-400 rounded">ME</span>
-        </h1>
-        <h1 className="text-center font-bold text-xl tracking-[0.5rem] my-3 mt-7">
-          KNOW WHO AM I
-        </h1>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-32 pb-20 sm:pt-40">
+        <div className="text-center">
+          <span className="eyebrow">Know who I am</span>
+          <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mt-5">
+            ABOUT <span className="text-green-400">ME</span>
+          </h1>
+        </div>
+
         {user.map((item, index) => (
           <div
             key={index}
-            className="border border-green-400 w-full max-w-5xl mx-auto flex flex-col lg:flex-row items-center rounded-3xl mt-20 p-6 gap-10"
+            className="card-glow hover:transform-none! w-full max-w-5xl mx-auto mt-14 p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-5 items-center gap-8 lg:gap-12 overflow-hidden"
           >
-            <img
-              src={item.profile_image}
-              alt=""
-              className="w-60 sm:w-72 md:w-80 lg:w-96 object-cover rounded-xl"
-            />
-            <div className="w-full lg:w-1/2 bg-black rounded-2xl p-6 sm:p-8">
-              <p className="font-bold text-2xl tracking-[0.2rem]">
+            {/* Photo */}
+            <div className="relative lg:col-span-2 flex justify-center">
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-6 bottom-0 top-10 rounded-full bg-green-400/20 blur-3xl"
+              />
+              <img
+                src={item.profile_image}
+                alt={`${item.full_name} portrait`}
+                className="fade-bottom relative w-56 sm:w-72 lg:w-full max-w-sm object-cover"
+              />
+            </div>
+
+            {/* Info */}
+            <div className="lg:col-span-3 text-center lg:text-left">
+              <span className="inline-flex items-center gap-2 rounded-full border border-green-400/40 bg-green-400/10 px-3 py-1 text-xs text-green-300">
+                <span className="size-2 rounded-full bg-green-400 animate-pulse" />
+                Open to freelance &amp; internships
+              </span>
+
+              <h2 className="text-white font-bold text-3xl sm:text-4xl mt-5">
                 {item.full_name}
-              </p>
-              <p className="text-gray-400 mt-3 text-[14px]">
+              </h2>
+              <p className="text-green-400 mt-2 text-sm tracking-wide">
                 IT Engineering Student, Fullstack Developer
               </p>
-              <p className="mt-10">{item.bio}</p>
-              <div className="flex flex-wrap gap-4 mt-6">
-                {iconconnect.map((item, index) => (
-                  <div key={index} className="flex flex-row">
-                    <a href={item.link}>
-                      <img
-                        className="border bg-white hover:border-green-400 border-gray-400 rounded-full w-14 p-2 my-5 hover:translate-1.5 duration-300 transition-transform"
-                        src={item.icon}
-                        alt=""
-                      />
-                    </a>
-                  </div>
+
+              <p className="text-gray-300 leading-7 mt-6">{item.bio}</p>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-8">
+                {iconconnect.map((icon, i) => (
+                  <a
+                    key={i}
+                    href={icon.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex size-12 items-center justify-center rounded-full border border-white/20 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-green-400 hover:bg-green-400/10"
+                  >
+                    <img className="size-5 invert" src={icon.icon} alt="" />
+                  </a>
                 ))}
               </div>
             </div>
           </div>
         ))}
 
-        <h1 className="text-center mt-30 font-bold text-2xl tracking-[0.5rem]">
-          MORE{" "}
-          <span className="border border-green-400 px-2 py-1 rounded mr-5">
-            ABOUT
-          </span>
-          ME
-        </h1>
+        {/* MORE ABOUT ME */}
+        <div className="text-center mt-28">
+          <span className="eyebrow">Beyond the code</span>
+          <h2 className="text-white text-3xl sm:text-4xl font-bold mt-5">
+            MORE <span className="text-green-400">ABOUT</span> ME
+          </h2>
+        </div>
         <CartMoreAboutMe />
       </div>
-      <h1 className="text-center font-bold text-3xl tracking-[0.5rem] my-3 uppercase">
-        Technologies I Work With
-      </h1>
-      <div className="flex justify-center">
-        <p className="text-gray-400 text-center w-130 py-3 mb-10">
-          A collection of programming languages and tools I use to build modern
-          applications
-        </p>
-      </div>
 
-      <UsageLogoLoop />
+      {/* TECHNOLOGIES */}
+      <section className="pb-24 text-center">
+        <span className="eyebrow">Tech stack</span>
+        <h2 className="text-white text-3xl sm:text-4xl font-bold mt-5 uppercase">
+          Technologies I <span className="text-green-400">Work With</span>
+        </h2>
+        <p className="text-gray-400 max-w-xl mx-auto mt-4 mb-6">
+          A collection of programming languages and tools I use to build modern
+          applications.
+        </p>
+
+        <UsageLogoLoop />
+      </section>
       <MoveToTop />
     </div>
   );
