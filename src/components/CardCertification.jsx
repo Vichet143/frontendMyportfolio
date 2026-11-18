@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import UserService from "../service/UserService";
 import MoveToTop from "./MoveToTop";
 import FilterTabs from "./FilterTabs";
+import { SkeletonCard } from "./Skeleton";
 
 const options = [
   { key: "all", label: "All" },
@@ -11,15 +12,17 @@ const options = [
 
 const CardCertification = () => {
   const [certification, setCertification] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchdata = async () => {
       try {
         const data = await UserService.getDataCertification();
-        console.log(data);
         setCertification(data);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchdata();
@@ -40,7 +43,14 @@ const CardCertification = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-6">
-        {filteredData.length > 0 ? (
+        {loading ? (
+          Array.from({ length: 3 }, (_, i) => (
+            <SkeletonCard
+              key={i}
+              className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
+            />
+          ))
+        ) : filteredData.length > 0 ? (
           filteredData.map((item, index) => (
             <div
               key={index}

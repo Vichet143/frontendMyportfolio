@@ -1,58 +1,54 @@
 import api from "./api/httpClient";
 
+// One shared request per endpoint: components that ask for the same data
+// (e.g. /users in Footer, About, Contact) reuse the same in-flight/finished
+// request instead of hitting the API again. Failed requests are not cached,
+// so the next call retries.
+const cache = new Map();
+
+const get = (path) => {
+  if (!cache.has(path)) {
+    const request = api
+      .get(path)
+      .then((response) => response.data)
+      .catch((error) => {
+        cache.delete(path);
+        throw error;
+      });
+    cache.set(path, request);
+  }
+  return cache.get(path);
+};
+
 class UserService {
-  static async getDataUser() {
-    try {
-      const response = await api.get("/users");
-      return response.data;
-    } catch (error) {
-      console.log("Failed to fetch users:", error);
-      return error;
-    }
+  // Fire-and-forget request that wakes up a sleeping (cold) server while the
+  // app is still loading. Reuses the /users cache so it is not a wasted call.
+  static warmUp() {
+    get("/users").catch(() => {});
   }
 
-  static async getDataProject(){
-    try {
-      const response = await api.get("/projects");
-      return response.data;
-    } catch (error) {
-      console.log("Failed to fetch project:", error);
-      return error;
-    }
+  static getDataUser() {
+    return get("/users");
   }
 
-  static async getDataEducation(){
-    try {
-      const response = await api.get("/education");
-      return response.data;
-    } catch (error) {
-      return error;
-    }
+  static getDataProject() {
+    return get("/projects");
   }
 
-  static async getDataCertification(){
-    try {
-      const response = await api.get("/certificate");
-      return response.data;
-    } catch (error) {
-      return error;
-    }
+  static getDataEducation() {
+    return get("/education");
   }
-  static async getDataUserSkill(){
-    try {
-      const response = await api.get("/Userskill");
-      return response.data;
-    } catch (error) {
-      return error;
-    }
+
+  static getDataCertification() {
+    return get("/certificate");
   }
-  static async getDataSoftSkill(){
-    try {
-      const response = await api.get("/softskill");
-      return response.data;
-    } catch (error) {
-      return error;
-    }
+
+  static getDataUserSkill() {
+    return get("/Userskill");
+  }
+
+  static getDataSoftSkill() {
+    return get("/softskill");
   }
 }
 

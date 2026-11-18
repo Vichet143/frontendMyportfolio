@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import { PiStudentDuotone } from "react-icons/pi";
 import UserService from "../service/UserService";
+import { SkeletonCard } from "./Skeleton";
 
 const CartEducation = () => {
   const [education, setEducation] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await UserService.getDataEducation();
-        console.log(data);
         setEducation(data);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -23,6 +26,8 @@ const CartEducation = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {loading &&
+        Array.from({ length: 2 }, (_, i) => <SkeletonCard key={i} />)}
       {list.map((item, index) => (
         <div key={index} className="card-glow flex flex-col p-7 sm:p-8">
           <div className="mb-6 flex items-center gap-4">
