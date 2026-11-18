@@ -439,8 +439,12 @@ void main() {
 
   useEffect(() => {
     const fetchDatauser = async () => {
-      const data = await UserService.getDataUser();
-      setUser(data);
+      try {
+        const data = await UserService.getDataUser();
+        setUser(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchDatauser();
   }, []);

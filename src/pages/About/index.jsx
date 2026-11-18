@@ -15,8 +15,7 @@ const About = () => {
     const fetchUser = async () => {
       try {
         const data = await UserService.getDataUser();
-        console.log(data);
-        setUser(data);
+        setUser(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error(error);
       }

@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
 import UserService from "../service/UserService";
+import { SkeletonCard } from "./Skeleton";
 import iconprojectweb from "../assets/image/iconproject.png";
 import iconprojectbackend from "../assets/image/iconprojectbackend.png";
 import iconprojectmobile from "../assets/image/iconprojectmobile.png";
 
 const CartProject = ({ filter = "all" }) => {
   const [projectData, setProjectdata] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await UserService.getDataProject();
-        console.log(data);
         setProjectdata(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
@@ -34,7 +37,9 @@ const CartProject = ({ filter = "all" }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-4 px-4">
-      {displayedProjects.length > 0 ? (
+      {loading ? (
+        Array.from({ length: 3 }, (_, i) => <SkeletonCard key={i} />)
+      ) : displayedProjects.length > 0 ? (
         displayedProjects.map((item, index) => (
           <div
             key={index}
@@ -151,7 +156,7 @@ const CartProject = ({ filter = "all" }) => {
       ) : (
         <div className="col-span-3 text-center py-10">
           <h2 className="text-xl font-semibold text-gray-400">
-            No certifications found.
+            No projects found.
           </h2>
           <p className="text-gray-500 mt-2">
             There are no {filter === "all" ? "" : filter} projects available.

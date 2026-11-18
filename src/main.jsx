@@ -6,6 +6,10 @@ import "./index.css";
 import App from "./App";
 import LoadingApp from "./components/LoadingApp";
 import { MetaPixelProvider } from "@adkit/meta-pixel-react";
+import UserService from "./service/UserService";
+
+// Wake the API server (Render free tier sleeps when idle) as early as possible.
+UserService.warmUp();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

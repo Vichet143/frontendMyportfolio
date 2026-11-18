@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MoveToTop from "../../components/MoveToTop";
 import UserService from "../../service/UserService";
 import { FaDownload } from "react-icons/fa6";
+import { SkeletonGrid } from "../../components/Skeleton";
 import SectionHeading from "../../components/SectionHeading";
 import FilterTabs from "../../components/FilterTabs";
 import CartProject from "../../components/CartProject";
@@ -53,63 +54,37 @@ const Resume = () => {
   const [education, setEducation] = useState([]);
   const [certifications, setCertifications] = useState([]);
 
-  //   getdatauserskill
+  const [loading, setLoading] = useState(true);
+
+  // Load all resume data in parallel; one failing request does not block the rest.
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const data = await UserService.getDataUserSkill();
-        Setskill(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+      const [skills, soft, edu, certs] = await Promise.allSettled([
+        UserService.getDataUserSkill(),
+        UserService.getDataSoftSkill(),
+        UserService.getDataEducation(),
+        UserService.getDataCertification(),
+      ]);
 
-    fetchData();
-  }, []);
+      if (skills.status === "fulfilled") Setskill(skills.value);
+      if (soft.status === "fulfilled") Setsoftskill(soft.value);
+      if (edu.status === "fulfilled") setEducation(edu.value);
+      if (certs.status === "fulfilled") setCertifications(certs.value);
 
-  //   getDataSoftSkill
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await UserService.getDataSoftSkill();
-        Setsoftskill(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  //education get data
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await UserService.getDataEducation();
-        setEducation(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  //get data certification
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await UserService.getDataCertification();
-        setCertifications(data);
-      } catch (error) {
-        console.error(error);
-      }
+      [skills, soft, edu, certs].forEach((result) => {
+        if (result.status === "rejected") console.error(result.reason);
+      });
+      setLoading(false);
     };
 
     fetchData();
   }, []);
 
   const renderContent = () => {
+    if (loading && (filter === "skills" || filter === "education" || filter === "certifications")) {
+      return <SkeletonGrid count={filter === "skills" ? 4 : 3} />;
+    }
+
     //skills
     if (filter === "skills") {
       const skills = toList(skill);

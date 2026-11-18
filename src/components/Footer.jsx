@@ -20,8 +20,12 @@ const Footer = () => {
 
   useEffect(() => {
     const fetchDatauser = async () => {
-      const data = await UserService.getDataUser();
-      setUser(Array.isArray(data) ? data : []);
+      try {
+        const data = await UserService.getDataUser();
+        setUser(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchDatauser();
   }, []);
